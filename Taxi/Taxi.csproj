@@ -46,26 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ball.cs" />
-    <Compile Include="Cover.cs" />
-    <Compile Include="DataCleaner.cs" />
+    <Compile Include="Geometry\Ball.cs" />
+    <Compile Include="Geometry\Cover.cs" />
+    <Compile Include="Learning\DataCleaner.cs" />
     <Compile Include="Extension.cs" />
-    <Compile Include="FeatureInteractions.cs" />
-    <Compile Include="FeatureWriter.cs" />
+    <Compile Include="Learning\FeatureInteractions.cs" />
+    <Compile Include="Learning\FeatureWriter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Distance.cs" />
-    <Compile Include="PredictionParameters.cs" />
-    <Compile Include="WeightedPoint.cs" />
-    <Compile Include="Polyline.cs" />
+    <Compile Include="Geometry\Distance.cs" />
+    <Compile Include="Learning\PredictionParameters.cs" />
+    <Compile Include="Geometry\WeightedPoint.cs" />
+    <Compile Include="Geometry\Polyline.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StreamingCloud.cs" />
-    <Compile Include="StreamingLearning.cs" />
+    <Compile Include="Geometry\StreamingCloud.cs" />
+    <Compile Include="Learning\StreamingLearning.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
