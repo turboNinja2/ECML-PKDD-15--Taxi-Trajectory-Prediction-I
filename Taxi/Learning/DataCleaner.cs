@@ -43,7 +43,5 @@ namespace Taxi
             }
             return new Tuple<int, int>(totalLines, finalLines);
         }
-
-
     }
 }

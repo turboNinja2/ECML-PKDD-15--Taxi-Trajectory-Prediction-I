@@ -4,6 +4,13 @@ namespace Taxi
 {
     public static class FeatureInteractions
     {
+
+        /// <summary>
+        /// Implements various interactions to extract relevant features.
+        /// </summary>
+        /// <param name="input">The initial list of features.</param>
+        /// <param name="keyword">The method used to evaluate the interactions.</param>
+        /// <returns>The interacting features.</returns>
         public static List<string> CartesianProduct(this List<string> input, string keyword)
         {
             List<string> res = new List<string>();
@@ -49,7 +56,6 @@ namespace Taxi
                             !input[i].StartsWith("TIMESTAMP") && !input[j].StartsWith("TIMESTAMP"))
                             res.Add(input[i] + "_" + input[j]);
 
-
             if (keyword == "method7")
             {
                 string factor = "";
@@ -63,13 +69,8 @@ namespace Taxi
                             !input[i].StartsWith("CALL_TYPE") && !input[j].StartsWith("CALL_TYPE") &&
                             !input[i].StartsWith("TIMESTAMP") && !input[j].StartsWith("TIMESTAMP"))
                             res.Add(input[i] + "_" + input[j] + "_" + factor);
-
-
             }
-
-
             return res;
         }
-
     }
 }

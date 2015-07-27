@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Globalization;
 
 namespace Taxi
 {
+    /// <summary>
+    /// Represents a cloud of points. Note that the points themselves are not stored.
+    /// </summary>
     public class StreamingCloud
     {
-        int _nbPoints = 0;
-        WeightedPoint _barycenter = null;
-        double _dispersion = -1;
+        private int _nbPoints = 0;
+        private WeightedPoint _barycenter = null;
+        private double _dispersion = -1;
 
         public void Add(WeightedPoint point)
         {
@@ -31,37 +31,24 @@ namespace Taxi
 
         public WeightedPoint Barycenter
         {
-            get
-            {
-                return _barycenter;
-            }
+            get { return _barycenter; }
         }
 
         public double Dispersion
         {
-            get
-            {
-                return _dispersion;
-            }
+            get { return _dispersion; }
         }
 
         public int Size
         {
-            get
-            {
-                return _nbPoints;
-            }
+            get { return _nbPoints; }
         }
 
         public override string ToString()
         {
-            return _barycenter.ToString() + "," + 
-                Convert.ToString(_dispersion, CultureInfo.GetCultureInfo("en-US")) + "," + 
-                Convert.ToString(_nbPoints,  CultureInfo.GetCultureInfo("en-US"));
+            return _barycenter.ToString() + "," +
+                Convert.ToString(_dispersion, CultureInfo.GetCultureInfo("en-US")) + "," +
+                Convert.ToString(_nbPoints, CultureInfo.GetCultureInfo("en-US"));
         }
-
-
-
-
     }
 }

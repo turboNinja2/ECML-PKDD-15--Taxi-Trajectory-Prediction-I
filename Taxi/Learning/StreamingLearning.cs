@@ -10,10 +10,7 @@ namespace Taxi
     {
         public delegate double DistanceFunction(WeightedPoint p1, WeightedPoint p2);
 
-        // Prediction dictionary
         Dictionary<string, StreamingCloud> _vector = new Dictionary<string, StreamingCloud>();
-
-        // Cross-validation dictionaries
         List<Dictionary<string, StreamingCloud>> _vectorsCV = new List<Dictionary<string, StreamingCloud>>();
 
         /// <summary>

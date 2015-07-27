@@ -6,6 +6,14 @@ namespace Taxi
 {
     public static class FeatureWriter
     {
+        /// <summary>
+        /// Given a cover of the map, writes a "libsvm" file associated to the cover. It also writes other features : last recorded element...
+        /// </summary>
+        /// <param name="ballSet">The cover of the map</param>
+        /// <param name="ballsName">The name of the cover</param>
+        /// <param name="filePath">The (cleaned) train file path</param>
+        /// <param name="train">Should the file include the label</param>
+        /// <param name="finalPosition">Shall we work with the final position or the total time ?</param>
         public static void FromNeighborhood(Cover ballSet, string ballsName, string filePath, bool train, bool finalPosition = true)
         {
             Random rnd = new Random(1);
@@ -35,7 +43,6 @@ namespace Taxi
                         if (pl.Length == 0) continue;
                     }
 
-
                     List<string> res = ballSet.WhoContains(pl);
                     string last = String.Join(",", res);
 
@@ -44,7 +51,6 @@ namespace Taxi
 
                     string firstRecordedElement = pl.FirstElementString(2); // gets the last position
                     last = "FRE_" + firstRecordedElement + ',' + last; // from version 1.2
-
 
                     for (int i = 0; i < header.Length; i++)
                     {
@@ -64,12 +70,10 @@ namespace Taxi
                     restOfLine += ",SPEED_" + Convert.ToString(Math.Floor(pl.Speed()/15*360)); // version 3
 
                     if (train)
-                    {
                         if (finalPosition)
                             last = lastElement + ',' + last;
                         else
                             last = totalLength + "_0" + ',' + last;
-                    }
 
                     writer.WriteLine(last + restOfLine);
                 }

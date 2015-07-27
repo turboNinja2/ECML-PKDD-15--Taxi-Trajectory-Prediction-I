@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace Taxi
 {
+    /// <summary>
+    /// A very simple class to store learning parameters
+    /// </summary>
     public class LearningParameters
     {
         public int MinOccurences;
