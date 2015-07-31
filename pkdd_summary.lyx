@@ -93,13 +93,8 @@ For the training, cut the trajectories according to a
 \begin_inset Formula $\min(U[0,1],U[0,1])$
 \end_inset
 
- law.
- 
-\end_layout
-
-\begin_layout Itemize
-It provided a good matching between cross validation and leaderboard score.
- 
+ law (it provided a good matching between cross validation and leaderboard
+ score).
 \end_layout
 
 \begin_layout Itemize
@@ -146,7 +141,7 @@ Return an average of the barycenters, weighted by the inverse of the standard
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\hat{f}(p_{1}...p_{n})=\sum_{k,p_{k}\, is\, true}\frac{\left(\#C\left(p_{k}\right)\right)^{\alpha}\mathrm{bar}(C(p_{k}))}{\mathrm{sd}\left(C(p_{k})\right)^{\beta}}
+\hat{f}(p_{1}...p_{n})=\sum_{k,p_{k}\, is\, true}\frac{\#\left(C\left(p_{k}\right)\right)^{\alpha}\mathrm{bar}(C(p_{k}))}{\mathrm{sd}\left(C(p_{k})\right)^{\beta}}
 \]
 
 \end_inset
@@ -173,7 +168,7 @@ Where :
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\#C(p_{k})$
+\begin_inset Formula $\#\left(C(p_{k})\right)$
 \end_inset
 
 , sd and bar stands for the number of points, the variance and the barycenter
