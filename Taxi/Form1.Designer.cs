@@ -34,8 +34,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.keywordsTbx = new System.Windows.Forms.TextBox();
-            this.euclideRdBtn = new System.Windows.Forms.RadioButton();
-            this.haversineRdbtn = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,8 +83,6 @@
             // 
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.keywordsTbx);
-            this.groupBox3.Controls.Add(this.euclideRdBtn);
-            this.groupBox3.Controls.Add(this.haversineRdbtn);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
@@ -117,36 +113,12 @@
             // keywordsTbx
             // 
             this.keywordsTbx.Location = new System.Drawing.Point(115, 41);
-            this.keywordsTbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.keywordsTbx.Margin = new System.Windows.Forms.Padding(2);
             this.keywordsTbx.Name = "keywordsTbx";
             this.keywordsTbx.Size = new System.Drawing.Size(217, 20);
             this.keywordsTbx.TabIndex = 12;
             this.keywordsTbx.Text = "method6;method4";
             this.keywordsTbx.TextChanged += new System.EventHandler(this.keywordsTbx_TextChanged);
-            // 
-            // euclideRdBtn
-            // 
-            this.euclideRdBtn.AutoSize = true;
-            this.euclideRdBtn.Location = new System.Drawing.Point(18, 181);
-            this.euclideRdBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.euclideRdBtn.Name = "euclideRdBtn";
-            this.euclideRdBtn.Size = new System.Drawing.Size(60, 17);
-            this.euclideRdBtn.TabIndex = 11;
-            this.euclideRdBtn.TabStop = true;
-            this.euclideRdBtn.Text = "Euclide";
-            this.euclideRdBtn.UseVisualStyleBackColor = true;
-            // 
-            // haversineRdbtn
-            // 
-            this.haversineRdbtn.AutoSize = true;
-            this.haversineRdbtn.Location = new System.Drawing.Point(18, 159);
-            this.haversineRdbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.haversineRdbtn.Name = "haversineRdbtn";
-            this.haversineRdbtn.Size = new System.Drawing.Size(73, 17);
-            this.haversineRdbtn.TabIndex = 10;
-            this.haversineRdbtn.TabStop = true;
-            this.haversineRdbtn.Text = "Haversine";
-            this.haversineRdbtn.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -191,7 +163,7 @@
             // expo2Tbx
             // 
             this.expo2Tbx.Location = new System.Drawing.Point(116, 132);
-            this.expo2Tbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expo2Tbx.Margin = new System.Windows.Forms.Padding(2);
             this.expo2Tbx.Name = "expo2Tbx";
             this.expo2Tbx.Size = new System.Drawing.Size(217, 20);
             this.expo2Tbx.TabIndex = 5;
@@ -200,7 +172,7 @@
             // expo1Tbx
             // 
             this.expo1Tbx.Location = new System.Drawing.Point(116, 109);
-            this.expo1Tbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expo1Tbx.Margin = new System.Windows.Forms.Padding(2);
             this.expo1Tbx.Name = "expo1Tbx";
             this.expo1Tbx.Size = new System.Drawing.Size(217, 20);
             this.expo1Tbx.TabIndex = 4;
@@ -210,7 +182,7 @@
             // maxoccurencesTbx
             // 
             this.maxoccurencesTbx.Location = new System.Drawing.Point(116, 86);
-            this.maxoccurencesTbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maxoccurencesTbx.Margin = new System.Windows.Forms.Padding(2);
             this.maxoccurencesTbx.Name = "maxoccurencesTbx";
             this.maxoccurencesTbx.Size = new System.Drawing.Size(217, 20);
             this.maxoccurencesTbx.TabIndex = 3;
@@ -219,7 +191,7 @@
             // minOccurencesTbx
             // 
             this.minOccurencesTbx.Location = new System.Drawing.Point(116, 63);
-            this.minOccurencesTbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minOccurencesTbx.Margin = new System.Windows.Forms.Padding(2);
             this.minOccurencesTbx.Name = "minOccurencesTbx";
             this.minOccurencesTbx.Size = new System.Drawing.Size(217, 20);
             this.minOccurencesTbx.TabIndex = 2;
@@ -277,8 +249,6 @@
         private System.Windows.Forms.TextBox maxoccurencesTbx;
         private System.Windows.Forms.TextBox minOccurencesTbx;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton euclideRdBtn;
-        private System.Windows.Forms.RadioButton haversineRdbtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox keywordsTbx;
     }

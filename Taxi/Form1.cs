@@ -99,12 +99,8 @@ namespace Taxi
 
             string trainFilePath = of.FileNames[0];
 
-            StreamingLearning.DistanceFunction distance;
-            if (haversineRdbtn.Checked)
-                distance = Distances.Haversine;
-            else
-                distance = Distances.Euclide;
-
+            StreamingLearning.DistanceFunction distance = Distances.Haversine;
+            
             string[] keywords = keywordsTbx.Text.Split(';'),
                 maxOccurences = maxoccurencesTbx.Text.Split(';'),
                 minOccurences = minOccurencesTbx.Text.Split(';'),

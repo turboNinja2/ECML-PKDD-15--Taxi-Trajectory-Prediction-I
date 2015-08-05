@@ -58,7 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Geometry\Distance.cs" />
+    <Compile Include="Geometry\Distances.cs" />
     <Compile Include="Learning\PredictionParameters.cs" />
     <Compile Include="Geometry\WeightedPoint.cs" />
     <Compile Include="Geometry\Polyline.cs" />

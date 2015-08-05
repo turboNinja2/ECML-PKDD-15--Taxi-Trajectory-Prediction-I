@@ -12,23 +12,6 @@ namespace Taxi
         private WeightedPoint _barycenter = null;
         private double _dispersion = -1;
 
-        public void Add(WeightedPoint point)
-        {
-            _nbPoints++;
-            if (_barycenter == null)
-            {
-                _barycenter = new WeightedPoint(point.X, point.Y, 1);
-                _dispersion = 0;
-            }
-            else
-            {
-                _barycenter = _barycenter.Multiply(_nbPoints - 1);
-                _barycenter = _barycenter.Add(point);
-                _barycenter = _barycenter.Divide(_nbPoints);
-                _dispersion = (_dispersion * (_nbPoints - 1) + WeightedPoint.EuclideDistance(_barycenter, point)) / _nbPoints;
-            }
-        }
-
         public WeightedPoint Barycenter
         {
             get { return _barycenter; }
@@ -42,6 +25,23 @@ namespace Taxi
         public int Size
         {
             get { return _nbPoints; }
+        }
+
+        public void Add(WeightedPoint point)
+        {
+            _nbPoints++;
+            if (_barycenter == null)
+            {
+                _barycenter = new WeightedPoint(point.X, point.Y, 1);
+                _dispersion = 0;
+            }
+            else
+            {
+                _barycenter = _barycenter.Multiply(_nbPoints - 1);
+                _barycenter = _barycenter.Add(point);
+                _barycenter = _barycenter.Divide(_nbPoints);
+                _dispersion = (_dispersion * (_nbPoints - 1) + Distances.Euclide(_barycenter, point)) / _nbPoints;
+            }
         }
 
         public override string ToString()

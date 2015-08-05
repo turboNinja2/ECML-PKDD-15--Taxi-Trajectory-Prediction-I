@@ -57,8 +57,6 @@ namespace Taxi
             return new WeightedPoint(_x * elt, _y * elt, _weight * elt);
         }
 
-
-
         public static WeightedPoint Barycenter(IList<WeightedPoint> bvs)
         {
             WeightedPoint res = new WeightedPoint();
@@ -72,10 +70,7 @@ namespace Taxi
             return res;
         }
 
-        public static double EuclideDistance(WeightedPoint bv1, WeightedPoint bv2)
-        {
-            return Math.Sqrt((bv1.X - bv2.X) * (bv1.X - bv2.X) + (bv2.Y - bv1.Y) * (bv2.Y - bv1.Y));
-        }
+
 
         public double X
         {
