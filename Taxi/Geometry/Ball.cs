@@ -1,6 +1,6 @@
 ﻿namespace Taxi
 {
-    public class Ball
+    public struct Ball
     {
         private double _x;
         private double _y;

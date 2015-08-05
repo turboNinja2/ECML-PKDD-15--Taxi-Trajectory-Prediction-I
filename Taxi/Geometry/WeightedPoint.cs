@@ -42,9 +42,9 @@ namespace Taxi
 
         #endregion
 
-        public WeightedPoint Add(WeightedPoint V2)
+        public WeightedPoint Add(WeightedPoint p2)
         {
-            return new WeightedPoint(_x + V2.X , _y + V2.Y , _weight + V2.Weight);
+            return new WeightedPoint(_x + p2.X , _y + p2.Y , _weight + p2.Weight);
         }
 
         public WeightedPoint Divide(double elt)
@@ -57,20 +57,18 @@ namespace Taxi
             return new WeightedPoint(_x * elt, _y * elt, _weight * elt);
         }
 
-        public static WeightedPoint Barycenter(IList<WeightedPoint> bvs)
+        public static WeightedPoint Barycenter(IList<WeightedPoint> pts)
         {
             WeightedPoint res = new WeightedPoint();
             double counter = 0;
-            foreach (WeightedPoint bv in bvs)
+            foreach (WeightedPoint pt in pts)
             {
-                res = res.Add(bv.Multiply(bv.Weight));
-                counter += bv.Weight;
+                res = res.Add(pt.Multiply(pt.Weight));
+                counter += pt.Weight;
             }
             res = res.Divide(counter);
             return res;
         }
-
-
 
         public double X
         {

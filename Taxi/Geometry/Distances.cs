@@ -29,9 +29,15 @@ namespace Taxi
             return Hdist;
         }
 
-        public static double Euclide(WeightedPoint bv1, WeightedPoint bv2)
+        /// <summary>
+        /// Returns the Euclide distance between two weighted points.
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
+        public static double Euclide(WeightedPoint p1, WeightedPoint p2)
         {
-            return Math.Sqrt((bv1.X - bv2.X) * (bv1.X - bv2.X) + (bv2.Y - bv1.Y) * (bv2.Y - bv1.Y));
+            return Math.Sqrt((p1.X - p2.X) * (p1.X - p2.X) + (p2.Y - p1.Y) * (p2.Y - p1.Y));
         }
     }
 }
