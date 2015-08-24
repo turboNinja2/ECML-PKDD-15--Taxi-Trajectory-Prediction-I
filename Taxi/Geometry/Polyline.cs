@@ -5,18 +5,34 @@ using System.Linq;
 
 namespace Taxi
 {
+    /// <summary>
+    /// Represents a polyline : \f$(x_1,y_1),(x_2,y_2),...,(x_n,y_n)\f$
+    /// Various features are available.
+    /// </summary>
     public class Polyline
     {
         private double[] _polylineX;
         private double[] _polylineY;
 
-        #region Constructors
+        #region Accessors
 
-        public Polyline()
+        /// <summary>
+        /// Length of the polyline.
+        /// </summary>
+        public int Length
         {
-
+            get { return _polylineX.Length; }
         }
 
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Builds a polyline from a string. Optional : keep a subpart of the complete polyline.
+        /// </summary>
+        /// <param name="line">The input string, under the format [[x_1,y_1],...,[x_n,y_n]].</param>
+        /// <param name="partToKeep">The percentage of the first part of the string to keep.</param>
         public Polyline(string line, double partToKeep = 1.1f)
         {
             StringSplitOptions sso = new StringSplitOptions();
@@ -48,13 +64,10 @@ namespace Taxi
 
         #endregion
 
-        #region Accessors
-
-        public int Length
-        {
-            get { return _polylineX.Length; }
-        }
-
+        /// <summary>
+        ///  Feature extraction. Direction of the polyline : N,S,E,W.
+        /// </summary>
+        /// <returns>The direction, as a string, of the polyline.</returns>
         public string GetDirection()
         {
             string res = "";
@@ -63,8 +76,10 @@ namespace Taxi
             return res;
         }
 
-        #endregion
-
+        /// <summary>
+        /// Feature extraction.
+        /// </summary>
+        /// <returns>The maximum speed over the polyline.</returns>
         public double MaxSpeed()
         {
             double maxSpeed = 0;
@@ -74,10 +89,10 @@ namespace Taxi
         }
 
         /// <summary>
-        /// True if the polyline goes through the ball.
+        /// Feature extraction. True if the polyline goes through the ball.
         /// </summary>
-        /// <param name="b">The ball</param>
-        /// <returns></returns>
+        /// <param name="b">The ball.</param>
+        /// <returns>True if the polyline crosses the ball.</returns>
         public bool Crosses(Ball b)
         {
             bool res = false;
@@ -87,34 +102,44 @@ namespace Taxi
         }
 
         /// <summary>
-        /// Returns (as a string) the last point of a polyline
+        /// Feature extraction. Returns (as a string) the last point of a polyline.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The last point of a polyline</returns>
         public string LastElementString()
         {
             return (Convert.ToString(_polylineX.Last(), CultureInfo.GetCultureInfo("en-US")) + '_' +
                 Convert.ToString(_polylineY.Last(), CultureInfo.GetCultureInfo("en-US")));
         }
 
-
+        /// <summary>
+        /// Feature extraction. Returns (as a string) the last point of a polyline.
+        /// </summary>
+        /// <returns>The (rounded) last point of a polyline.</returns>
         public string LastElementString(int precision)
         {
-            // * 2 starts from new version (improve resolution of the last point)
             return (Convert.ToString(Math.Round(_polylineX.Last() * 2, precision), CultureInfo.GetCultureInfo("en-US")) + '_' +
                 Convert.ToString(Math.Round(_polylineY.Last() * 2, precision), CultureInfo.GetCultureInfo("en-US")));
         }
+
+        /// <summary>
+        /// Feature extraction. Returns (as a string) the first point of a polyline.
+        /// </summary>
+        /// <returns>The (rounded) first point of a polyline</returns>
         public string FirstElementString(int precision)
         {
             return (Convert.ToString(Math.Round(_polylineX.First(), precision), CultureInfo.GetCultureInfo("en-US")) + '_' +
                 Convert.ToString(Math.Round(_polylineY.First(), precision), CultureInfo.GetCultureInfo("en-US")));
         }
 
+        /// <summary>
+        /// Feature extraction. Gets the average speed.
+        /// </summary>
+        /// <returns>The average speed of the trajectory.</returns>
         public double Speed()
         {
             return Distances.Haversine(
                 new WeightedPoint(_polylineX.First(), _polylineY.First(), 1),
                 new WeightedPoint(_polylineX.Last(), _polylineY.Last(), 1)) / Length;
         }
-
     }
 }

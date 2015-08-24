@@ -2,11 +2,14 @@
 
 namespace Taxi
 {
+
+    /// <summary>
+    /// Implements various interactions to extract relevant features.
+    /// </summary>
     public static class FeatureInteractions
     {
-
         /// <summary>
-        /// Implements various interactions to extract relevant features.
+        /// Perform a cartesian product, according to the specified method.
         /// </summary>
         /// <param name="input">The initial list of features.</param>
         /// <param name="keyword">The method used to evaluate the interactions.</param>

@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Taxi
 {
-    public partial class Form1 : Form
+    /// <summary>
+    /// Main form of the application.
+    /// </summary>
+    public partial class MainForm : Form
     {
-        public Form1()
+        /// <summary>
+        /// Initialization of the main form of the application.
+        /// </summary>
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -69,7 +69,6 @@ namespace Taxi
 
             string sample = of.FileName;
 
-
             string[] keywords = keywordsTbx.Text.Split(';');
             string[] maxOccurences = maxoccurencesTbx.Text.Split(';');
             string[] minOccurences = minOccurencesTbx.Text.Split(';');
@@ -124,7 +123,7 @@ namespace Taxi
                             {
                                 string learning = keyword + "_" + minOc + "_" + maxOc + "_" + exp1 + "_" + exp2;
                                 learningParameters = new LearningParameters(learning);
-                                double[] err = sl.CVScore(trainFilePath, learningParameters, nFolds, learningParameters, distance);
+                                double[] err = sl.CrossValidationScore(trainFilePath, learningParameters, nFolds, distance);
                                 errors += learning + ";" + String.Join(";", err) + Environment.NewLine;
                             }
             }
@@ -132,25 +131,5 @@ namespace Taxi
             File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\" + fileName + "_CrossValidation_1.1.csv", errors);
             MessageBox.Show(errors);
         }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void unitTestHDistBtn_Click(object sender, EventArgs e)
-        {
-            WeightedPoint a = new WeightedPoint(41.18, 8.35, 1),
-            b = new WeightedPoint(41.17, 8.2, 1);
-
-            MessageBox.Show("HDist : " + Distances.Haversine(a, b));
-        }
-
-        private void keywordsTbx_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

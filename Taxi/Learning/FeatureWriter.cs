@@ -4,6 +4,9 @@ using System.IO;
 
 namespace Taxi
 {
+    /// <summary>
+    /// Turns the data into a "libsvm" representation.
+    /// </summary>
     public static class FeatureWriter
     {
         /// <summary>
@@ -80,6 +83,11 @@ namespace Taxi
             }
         }
 
+        /// <summary>
+        /// Turns a Julian timespan to a DateTime
+        /// </summary>
+        /// <param name="jts">The Julian timespan representation</param>
+        /// <returns>DateTime representation of the input</returns>
         public static DateTime JulianTimeStampToDateTime(int jts)
         {
             DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime();

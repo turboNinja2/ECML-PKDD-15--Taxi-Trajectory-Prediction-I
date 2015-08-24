@@ -12,21 +12,34 @@ namespace Taxi
         private WeightedPoint _barycenter = null;
         private double _dispersion = -1;
 
+        /// <summary>
+        /// Streaming estimate of the barycenter of the cloud.
+        /// </summary>
         public WeightedPoint Barycenter
         {
             get { return _barycenter; }
         }
 
+        /// <summary>
+        /// Streaming estimate of the variance of the cloud.
+        /// </summary>
         public double Dispersion
         {
             get { return _dispersion; }
         }
 
+        /// <summary>
+        /// Size of the cloud : /f$n/f$.
+        /// </summary>
         public int Size
         {
             get { return _nbPoints; }
         }
 
+        /// <summary>
+        /// Adds a point to a streaming cloud : the mean and variance of the clouds are updated.
+        /// </summary>
+        /// <param name="point">The point to add to the cloud.</param>
         public void Add(WeightedPoint point)
         {
             _nbPoints++;
@@ -44,6 +57,10 @@ namespace Taxi
             }
         }
 
+        /// <summary>
+        /// String representation of a cloud : barycenter, dispersion and the number of points.
+        /// </summary>
+        /// <returns>"barycenter_dispersion_nbPoints"</returns>
         public override string ToString()
         {
             return _barycenter.ToString() + "," +

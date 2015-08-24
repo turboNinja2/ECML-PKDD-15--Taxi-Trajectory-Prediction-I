@@ -4,16 +4,39 @@ using System.Globalization;
 namespace Taxi
 {
     /// <summary>
-    /// A very simple class to store learning parameters
+    /// A simple class to store learning parameters
     /// </summary>
     public class LearningParameters
     {
+        /// <summary>
+        /// The smallest number of occurences of a feature to use it.
+        /// </summary>
         public int MinOccurences;
-        public int MaxOccurences;
-        public double DispersionExponent;
-        public double SizeExponent;
-        public string Keyword;
 
+        /// <summary>
+        /// The largest number of occurences of a feature to use it.
+        /// </summary>
+        public int MaxOccurences;
+
+        /// <summary>
+        /// The exponent weighting the dispersion of the cloud.
+        /// </summary>
+        public double DispersionExponent;
+
+        /// <summary>
+        /// The exponent weighting the size of the cloud.
+        /// </summary>
+        public double SizeExponent;
+
+        /// <summary>
+        /// The method used to generate combination of features.
+        /// </summary>
+        public string Keyword;
+        
+        /// <summary>
+        /// Constructs the object from its string representation.
+        /// </summary>
+        /// <param name="learningString">"Keyword_MinOccurences_MaxOccurences_SizeExponent_DispersionExponent"</param>
         public LearningParameters(string learningString)
         {
             string[] parameters = learningString.Split('_');

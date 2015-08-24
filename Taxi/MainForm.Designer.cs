@@ -1,6 +1,6 @@
 ﻿namespace Taxi
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -118,7 +118,6 @@
             this.keywordsTbx.Size = new System.Drawing.Size(217, 20);
             this.keywordsTbx.TabIndex = 12;
             this.keywordsTbx.Text = "method6;method4";
-            this.keywordsTbx.TextChanged += new System.EventHandler(this.keywordsTbx_TextChanged);
             // 
             // label4
             // 
@@ -177,7 +176,6 @@
             this.expo1Tbx.Size = new System.Drawing.Size(217, 20);
             this.expo1Tbx.TabIndex = 4;
             this.expo1Tbx.Text = "-2;-1;0;1";
-            this.expo1Tbx.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // maxoccurencesTbx
             // 

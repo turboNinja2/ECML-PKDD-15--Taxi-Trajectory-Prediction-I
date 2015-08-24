@@ -3,6 +3,9 @@ using System.IO;
 
 namespace Taxi
 {
+    /// <summary>
+    /// A static class that cleans the data.
+    /// </summary>
     public static class DataCleaner
     {
         /// <summary>
@@ -11,8 +14,8 @@ namespace Taxi
         /// - There are missing data
         /// - Holidays
         /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
+        /// <param name="filePath">Input file path</param>
+        /// <returns>The total number of lines and the number of remaining lines</returns>
         public static Tuple<int, int> CleanMissingData(string filePath)
         {
             int totalLines = 0,

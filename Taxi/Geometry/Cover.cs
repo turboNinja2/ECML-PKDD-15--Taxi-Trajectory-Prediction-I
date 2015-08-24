@@ -16,9 +16,21 @@ namespace Taxi
         private List<Ball> _balls = new List<Ball>();
         private List<String> _names = new List<string>();
 
-        public Cover(string csv)
+        /// <summary>
+        /// Accessor to the names of the balls in the cover.
+        /// </summary>
+        public List<string> Names
         {
-            using (StreamReader reader = new StreamReader(csv))
+            get { return _names; }
+        }
+
+        /// <summary>
+        /// Builds a cover from a .csv file.
+        /// </summary>
+        /// <param name="csvFilePath">.csv file containing the cover. Must contain a header.</param>
+        public Cover(string csvFilePath)
+        {
+            using (StreamReader reader = new StreamReader(csvFilePath))
             {
                 string line = "";
                 reader.ReadLine(); // header
@@ -39,12 +51,12 @@ namespace Taxi
         /// <summary>
         /// Returns the names of the balls containing the specified polyline
         /// </summary>
-        /// <param name="pl"></param>
-        /// <returns></returns>
-        public List<string> WhoContains(Polyline pl)
+        /// <param name="polyline">The polyline to study</param>
+        /// <returns>The names of the balls crossing the polyline</returns>
+        public List<string> WhoContains(Polyline polyline)
         {
             bool[] res = new bool[_balls.Count];
-            Parallel.For(0, _balls.Count, i => { res[i] = pl.Crosses(_balls[i]); });
+            Parallel.For(0, _balls.Count, i => { res[i] = polyline.Crosses(_balls[i]); });
 
             List<string> resStr = new List<string>();
             for (int i = 0; i < _balls.Count; i++)
@@ -53,11 +65,5 @@ namespace Taxi
 
             return resStr;
         }
-
-        public List<string> Names
-        {
-            get { return _names; }
-        }
-
     }
 }
